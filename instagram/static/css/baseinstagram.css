@@ -1,0 +1,36 @@
+#logo{
+    margin-left: 200px;
+}
+
+#search[type=text] {
+    height:50px;
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    /* background-image: url('../images/searchicon.png'); */
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    
+}
+
+#search[type=text]:focus {
+    width: 100%;
+}
+#content{
+    margin-top: 100px;
+}
+
+.navbar{
+    border-bottom: 5px;
+    border-bottom-color: grey;
+    color:rgb(255, 255, 255);
+}
+body{
+    background-color: rgba(0, 0, 0, 0.945);
+}

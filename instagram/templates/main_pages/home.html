@@ -1,0 +1,30 @@
+{%extends 'main_pages/base.html'%}
+{% block content %}
+{{block.super}}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+            <div class="card text-justified" id="content">
+                <div class="card-header" style="background-color: whitesmoke;">
+                    Profile information
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                </div>
+                <div class="card-footer " style="background-color: whitesmoke;">
+                    <!-- <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> -->
+                    <button class="btn btn-outline-secondary">comment</button>
+                    <br>
+                    <h6>Comments</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 scroll">
+            <div class="card"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
