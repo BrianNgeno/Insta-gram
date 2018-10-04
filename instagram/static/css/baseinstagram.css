@@ -32,8 +32,11 @@
     border-bottom-color: grey;
     color:rgb(255, 255, 255);
 }
-body{
-    /* background-color: rgba(0, 0, 0, 0.945); */
+.card-header{
+    background-color:white;
+}
+#footer{
+    background-color: white;
 }
 #icon{
     margin-right: 70px;
@@ -60,4 +63,13 @@ body{
 }
 #app{
     margin-top: 30px;
+}
+
+.form-text{
+    type: hidden;
+    display: none;
+    visibility: hidden;
+}
+#user{
+    box-shadow: 12px;
 }
