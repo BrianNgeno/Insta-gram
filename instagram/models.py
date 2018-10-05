@@ -9,3 +9,6 @@ class Image(models.Model):
     Comments = models.TextField(max_length = 50)
     Profile = models.ForeignKey
 
+class Profile(models.Model):
+    Profile_photo = models.ImageField(upload_to ='images/')
+    Bio = models.TextField(max_length = 50)
