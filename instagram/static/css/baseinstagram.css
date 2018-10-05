@@ -27,7 +27,7 @@
     margin-top: 100px;
 }
 
-.navbar{
+#nav{
     border-bottom: 5px;
     border-bottom-color: grey;
     color:rgb(255, 255, 255);
@@ -61,6 +61,10 @@
     padding-top:20px;
     padding-bottom: 20px;
 }
+#on{
+    margin-top: 20px;
+    text-align: center;
+}
 #app{
     margin-top: 30px;
 }
@@ -73,4 +77,8 @@
 #user{
     margin-top: 20px;
     box-shadow: 12px;
+    margin-left: 100px;
 }
+/* #hd{
+    margin-right: 40px;
+} */
