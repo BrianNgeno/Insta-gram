@@ -71,5 +71,6 @@
     visibility: hidden;
 }
 #user{
+    margin-top: 20px;
     box-shadow: 12px;
 }
