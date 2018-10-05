@@ -45,9 +45,7 @@
 #icon a{
     color:black;
 }
-#like a{
-    color:black;
-}
+
 #login{
     background-color: white;
     align-items: center;
@@ -80,6 +78,10 @@
     box-shadow: 12px;
     margin-left: 100px;
 }
-/* #hd{
-    margin-right: 40px;
-} */
+#like{
+    margin-top:40px;
+}
+#like a{
+    color:black;
+    margin-left: 10px;
+}

@@ -2,31 +2,42 @@
 {% load static%}
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
-<link rel="icon" href="../../static/images/icon.png"/>
+  <link rel="icon" href="../../static/images/icon.png" />
   {% if title %}
   <title>Instagram</title>
   {% else %}
-  <link rel="icon" href="../../static/images/icon.png"/>
-    <title> Instagram</title>
+  <link rel="icon" href="../../static/images/icon.png" />
+  <title> Instagram</title>
   {% endif %}
 
   {% block styles %}
-    {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/baseinstagram.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/baseinstagram.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   {% endblock %}
 
 </head>
-<body>
-    {% include "navbar.html" %}
-    {% block content %}  {%endblock%}
 
-    {% block scripts %}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     {% bootstrap_javascript %}
-    {% endblock %}
+<body>
+  {% include "navbar.html" %}
+  {% block content %} {%endblock%}
+
+  {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% bootstrap_javascript %}
+  {% endblock %}
+  <footer>
+    ...
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <script src="{% static 'js/app.js' %}"></script>
+  {% block javascript %}{% endblock %}
 </body>
+
 </html>
