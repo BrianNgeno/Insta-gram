@@ -10,15 +10,15 @@
 
             <div class="profile-image">
 
-                <img src="../../static/images/prof.jpeg" width="120px" height="120px " alt="">
+                <img src="{{user.profile.Profile_photo.url}}" width="120px" height="120px " alt="">
 
             </div>
 
             <div class="profile-user-settings">
 
-                <h1 class="profile-user-name">janedoe_</h1>
+                <h1 class="profile-user-name">{{user.username}}</h1>
 
-                <a href="{% url 'edit' %}"><button class="btn profile-edit-btn">Edit Profile</button></a>
+                <a href="{% url 'edit_profile' %}"><button class="btn profile-edit-btn">Edit Profile</button></a>
                 {% if user.is_authenticated %}
                 <ul>
                     <li class="dropdown btn profile-settings-btn" style="list-style:none;"aria-label="profile settings">
@@ -57,11 +57,10 @@
                 </ul>
 
             </div>
-
+            
             <div class="profile-bio">
 
-                <p><span class="profile-real-name">Jane Doe</span> Lorem ipsum dolor sit, amet consectetur adipisicing
-                    elit 📷✈️🏕️</p>
+                <p><span class="profile-real-name">{{user.username}}</span>{{user.profile.Bio}}</p>
 
             </div>
 

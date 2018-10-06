@@ -174,11 +174,15 @@ img {
 
 .profile-user-settings,
 .profile-stats,
-.profile-bio {
+ {
 	float: left;
 	width: calc(66.666% - 2rem);
 }
-
+.profile-bio{
+    float: left;
+    width: calc(66.666% - 2rem);
+    margin-top: 10px;
+}
 .profile-user-settings {
 	margin-top: 1.1rem;
 }
@@ -196,6 +200,9 @@ img {
 	border-radius: 0.3rem;
 	padding: 0 2.4rem;
 	margin-left: 2rem;
+}
+#proc img{
+    border-radius: 50%;
 }
 
 .profile-settings-btn {
