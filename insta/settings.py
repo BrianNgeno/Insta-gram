@@ -45,10 +45,14 @@ DATABASES = {
     'PASSWORD':'123',
     }
 }
-
+UPLOADCARE = {
+    'pub_key': config('pub_key'),
+    'secret': config('secret'),
+}
 # Application definition
 
 INSTALLED_APPS = [
+    'pyuploadcare.dj',
     'bootstrap4',
     'instagram',
     'django.contrib.admin',
