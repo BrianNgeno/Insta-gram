@@ -18,6 +18,11 @@ class Profile(models.Model):
     Bio = models.TextField(max_length = 50)
     user = models.OneToOneField(User,on_delete=models.CASCADE, primary_key=True)
 
+    def save_profile(self):
+        self.save()
+    
+    
+
 class Comment(models.Model):
     name = models.CharField(max_length=30)
 
