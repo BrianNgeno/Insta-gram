@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import datetime as dt
 
 
 # Create your models here.
@@ -13,7 +14,7 @@ class Image(models.Model):
     comment = models.ForeignKey
 
 class Profile(models.Model):
-    Profile_photo = models.ImageField(upload_to = 'images/',blank=True, manual_crop='800x800')
+    Profile_photo = models.ImageField(upload_to = 'images/',blank=True)
     Bio = models.TextField(max_length = 50)
     user = models.OneToOneField(User,on_delete=models.CASCADE, primary_key=True)
 
