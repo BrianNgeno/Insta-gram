@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Image,Profile
-from .forms import ProfileForm
+from .forms import ProfileForm, ImageForm
 from django.contrib.auth.models import User
 
 
@@ -37,3 +37,13 @@ def view_image(request):
     return render(request, 'main_pages/home.html',{"image":image})
 
 
+def search(request):
+    if 'search' in request.GET and request.GET['search']:
+        search_term = request.GET.get('search')
+        profile = Profile.search_user(search_term)
+        message = f'{search_term}'
+
+        return render(request, 'main_pages/search.html',{'message':message, 'profile':profile})
+    else:
+        message = 'Enter term to search'
+        return render(request, 'main_pages/search.html', {'message':message})
