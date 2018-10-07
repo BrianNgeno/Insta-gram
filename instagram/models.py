@@ -13,6 +13,16 @@ class Image(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True, null=True)
     comment = models.ForeignKey
 
+
+    def save_image(self):
+        self.save()
+    
+    @classmethod
+    def get_by_id(cls,id):
+        image= Image.objects.get(user = id)
+        return image
+
+        
 class Profile(models.Model):
     Profile_photo = models.ImageField(upload_to = 'images/',blank=True)
     Bio = models.TextField(max_length = 50)
@@ -23,14 +33,18 @@ class Profile(models.Model):
     
     @classmethod
     def get_by_id(cls, id):
-        profile = Profile.objects.get(user = id)
-        return profile
+        details = Profile.objects.get(user = id)
+        return details
 
     @classmethod
     def filter_by_id(cls, id):
-        profile = Profile.objects.filter(user = id).first()
-        return profile
+        details = Profile.objects.filter(user = id).first()
+        return details
     
+    @classmethod
+    def search_user(cls, name):
+        userprof = Profile.objects.filter(user__username__icontains = name)
+        return userprof
 
 class Comment(models.Model):
     name = models.CharField(max_length=30)

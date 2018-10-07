@@ -51,6 +51,7 @@
     align-items: center;
     margin-top: 30px;
     font-family: 'Cookie', cursive;
+    font-size:20px;
 }
 #top{
     margin-top: 40px;
@@ -85,17 +86,6 @@
     color:black;
     margin-left: 10px;
 }
-/*
-
-All grid code is placed in a 'supports' rule (feature query) at the bottom of the CSS (Line 310). 
-        
-The 'supports' rule will only run if your browser supports CSS grid.
-
-Flexbox and floats are used as a fallback so that browsers which don't support grid will still recieve a similar layout.
-
-*/
-
-/* Base Styles */
 
 :root {
 	font-size: 10px;
@@ -465,3 +455,6 @@ img {
 		}
 	}
 }
+ h4{
+    font-family: 'Cookie', cursive; 
+ }

@@ -1,4 +1,5 @@
 {%extends 'main_pages/base.html'%}
+{% load bootstrap4 %}
 {% block content %}
 {{block.super}}
 
@@ -21,10 +22,9 @@
                 <a href="{% url 'edit_profile' %}"><button class="btn profile-edit-btn">Edit Profile</button></a>
                 {% if user.is_authenticated %}
                 <ul>
-                    <li class="dropdown btn profile-settings-btn" style="list-style:none;"aria-label="profile settings">
+                    <li class="dropdown btn profile-settings-btn" style="list-style:none;" aria-label="profile settings">
                         <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button"
-                            aria-expanded="false"><i class="fas fa-cog"
-                            aria-hidden="true"></i>
+                            aria-expanded="false"><i class="fas fa-cog" aria-hidden="true"></i>
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
@@ -57,7 +57,7 @@
                 </ul>
 
             </div>
-            
+
             <div class="profile-bio">
 
                 <p><span class="profile-real-name">{{user.username}}</span>{{user.profile.Bio}}</p>
@@ -66,7 +66,7 @@
 
         </div>
         <!-- End of profile section -->
-
+        <button class="btn profile-edit-btn" data-toggle="modal" data-target="#myModal{{user.id}}">Add Post</button>
     </div>
     <!-- End of container -->
 
@@ -339,4 +339,5 @@
     <!-- End of container -->
 
 </main>
+
 {% endblock %}
