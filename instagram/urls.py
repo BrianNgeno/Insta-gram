@@ -6,7 +6,7 @@ from django.conf import settings
 
 urlpatterns=[
     url('^$',views.home_page,name = 'home_page'),
-    url(r'^profile/(\w+)', views.profile, name='profile'),
+    url(r'^profile/$', views.profile, name='profile'),
     url(r'^edit$', views.edit, name='edit_profile'),
     url(r'^upload/$', views.upload_image, name='upload_image'),
     url(r'^search/', views.search, name='search'),

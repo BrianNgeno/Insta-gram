@@ -75,7 +75,7 @@ def upload_image(request):
             upload = form.save(commit=False)
             upload.profile = request.user
             upload.save()
-            return redirect('profile', username=request.user)
+            return redirect('current_profile')
     else:
         form = ImageForm()
     
