@@ -1,7 +1,7 @@
 # Insta-gram
-```
+
 This is an online application that is used to share personal images to users who would like to share like and comment on pictures,users can also follow other users and friend them.
-```
+
 ## Specifications
 To be able to access the application the user should install the latest version of goole chrome, mozilla firefox or explore and load the live link provided.
 from this point the user can access an online page with the specified gallery, and can be able to:
@@ -39,11 +39,10 @@ I worked on this code on Linux OS. I used python as my primary language and djan
 If there are any issues on how the code runs, concerns, questions or ideas, kindly reach out to me on my email address; 
 bkn.ngeno@gmail.com.
 
-```##  <a href="https://git.heroku.com/gram-likes.git">live link to site</a>```
+##  <a href="https://git.heroku.com/gram-likes.git">live link to site</a>
 ## Authors
-```
+
 [Brian-Ng'eno](https://github.com/BrianNgeno/Insta-gram)
-```
 
 ## License
 MIT License
