@@ -22,6 +22,16 @@ class Image(models.Model):
         image= Image.objects.get(user = id)
         return image
 
+    @classmethod
+    def get_images(cls, profile):
+        image = Image.objects.filter(profile__pk = profile)
+        return image
+    
+    @classmethod
+    def get_all_images(cls):
+        images = Image.objects.all()
+        return images
+
         
 class Profile(models.Model):
     Profile_photo = models.ImageField(upload_to = 'images/',blank=True)

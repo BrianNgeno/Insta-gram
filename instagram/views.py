@@ -10,11 +10,20 @@ from django.contrib.auth.models import User
 @login_required(login_url='/accounts/login/')
 def home_page(request):
     image = Image.objects.all()
-    return render(request, 'main_pages/home.html',{"image":image})
+    return render(request, 'main_pages/home.html',{'image':image})
 
 @login_required(login_url='/accounts/login/')
-def profile(request):
-    return render(request, 'main_pages/profile.html')
+def profile(request, username):
+    print(" the number is this")
+    print(profile.id)
+    userprofile = User.objects.get(username=username)
+    form = ImageForm()
+    try:
+        profile_info = Profile.get_by_id(profile.id)
+    except:
+        profile_info = Profile.filter_by_id(profile.id)
+        image = Image.get_images(profile.id)
+    return render(request, 'main_pages/profile.html',{'form':form, 'userprofile':userprofile, 'profile_info':profile_info, 'image':image})
 
     '''
     editing user profile fillform & submission
@@ -66,8 +75,8 @@ def upload_image(request):
             upload = form.save(commit=False)
             upload.profile = request.user
             upload.save()
-            return redirect('home_page', username=request.user)
+            return redirect('profile', username=request.user)
     else:
         form = ImageForm()
     
-    return render(request, 'profile.html', {'form':form})
+    return render(request, 'main_pages/profile.html', {'form':form})

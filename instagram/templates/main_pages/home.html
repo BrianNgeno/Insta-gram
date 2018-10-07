@@ -7,7 +7,7 @@
         <div class="col-md-6">
             {% for item in image %}
             <div class="card mb-3" id="like">
-                <div class="card-body">
+                <div class="card-header">
                     <a href="{% url 'profile' %}">
                         <div class="row">
                             <div class="">
@@ -46,7 +46,7 @@
         </div>
     </div>
 </div>
-<script>
+<!-- <script>
 
     punticlick = 0;
     punti = document.getElementById("cliccare");
@@ -55,5 +55,5 @@
         punti.value = punticlick;
     }
 
-</script>
+</script> -->
 {% endblock %}

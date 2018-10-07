@@ -3,11 +3,13 @@ from . import views
 from django.conf.urls.static import static
 from django.conf import settings
 
+
 urlpatterns=[
     url('^$',views.home_page,name = 'home_page'),
-    url(r'^profile$', views.profile, name='profile'),
+    url(r'^profile/(\w+)', views.profile, name='profile'),
     url(r'^edit$', views.edit, name='edit_profile'),
-    url(r'^search/', views.search, name='search')
+    url(r'^upload/$', views.upload_image, name='upload_image'),
+    url(r'^search/', views.search, name='search'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
