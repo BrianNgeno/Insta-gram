@@ -24,3 +24,16 @@ class ImageTestCLass(TestCase):
         self.post.save_image()
         images = Image.objects.all()
         self.assertTrue(len(images)>0)
+
+class profileTestCLass(TestCase):
+    '''
+    setup self instance of image
+    '''
+    def setUp(self):
+        self.prof = Profile(Bio='Live the moment')
+    
+    ''' 
+    test instance of image
+    '''
+    def test_instance(self):
+        self.assertTrue(isinstance(self.prof,Profile))
