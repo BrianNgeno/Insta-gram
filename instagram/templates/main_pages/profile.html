@@ -11,7 +11,7 @@
 
             <div class="profile-image">
 
-                <img src="{{user.profile.Profile_photo.url}}" width="120px" height="120px " alt="">
+                <img src="{{user.profile.Profile_photo.url}}" width="120px" height="120px " alt="" class="img-responsive">
 
             </div>
 
@@ -51,9 +51,9 @@
             <div class="profile-stats">
 
                 <ul>
-                    <li><span class="profile-stat-count">164</span> posts</li>
-                    <li><span class="profile-stat-count">188</span> followers</li>
-                    <li><span class="profile-stat-count">206</span> following</li>
+                    <li><span class="profile-stat-count">{{profile.user.images|length}}</span> posts</li>
+                    <li><span class="profile-stat-count">0</span> followers</li>
+                    <li><span class="profile-stat-count">0</span> following</li>
                 </ul>
 
             </div>
@@ -81,7 +81,7 @@
             <div class="gallery-item" tabindex="0">
 
                 <img src="{{data.Image.url}}" class="gallery-image"
-                    alt="" >
+                    alt="" class="img-responsive">
 
                 <div class="gallery-item-info">
 

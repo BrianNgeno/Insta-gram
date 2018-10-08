@@ -85,7 +85,7 @@
 
 }
 .comnt{
-    margin-top: 5px;
+    margin-top: 1px;
 }
 #like a{
     color:rgb(5, 5, 5);
@@ -467,7 +467,7 @@ img {
     font-family: 'Cookie', cursive; 
  }
 
- /* .likes {
+  /* .heart {
     background-color: white;
     display: block;
     padding-top: 4px;
@@ -482,17 +482,17 @@ img {
   .red {
     color: red;
   }
-  
+   */
   /* footer styles */
-  /* footer {
+   /* footer {
     padding: 20px;
     border-top: 1px solid lightgrey;
   }
   
   @media screen and (max-width: 698px ) {
     header, .profile, .gallery, footer {
-  /*    border: 1px solid magenta; */
-     /* width: calc(100% - 40px);
+     border: 1px solid magenta; 
+      width: calc(100% - 40px);
     }
     .image-container {
       margin-right: 0px;
@@ -501,7 +501,7 @@ img {
     .image-container:nth-child(2n+1) {
       margin-right: 20px;
     }
-    .likes {
+    .heart {
       width: calc(100% - 4px);
     }
   }
@@ -515,10 +515,10 @@ img {
     .image-container {
       width: calc(33.33% - 16px);
     }
-    .likes {
+    .heart {
       width: calc(100% - 4px);
     }
-  }  */
+  }   */
    #modal{
     background-color: rgba(0, 0, 0, 0.877)
    }

@@ -33,7 +33,7 @@ class Image(models.Model):
     Image_name = models.CharField(max_length =30)
     Image_caption = models.TextField(max_length =40)
     Likes = models.CharField(max_length =20,blank =True)
-    profile = models.ForeignKey(Profile, null = True)
+    profile = models.ForeignKey(Profile, null = True,related_name='image')
     pub_date = models.DateTimeField(auto_now_add=True, null=True)
     comment = models.ForeignKey
     user= models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
@@ -65,6 +65,9 @@ class Image(models.Model):
 
 class Comment(models.Model):
     name = models.CharField(max_length=30)
+    user = models.ForeignKey(User,null = True)
+    image = models.ForeignKey(Image,related_name='comment')
+
 
     def __str__(self):
         return self.name

@@ -8,11 +8,11 @@
             {% for item in image %}
             <div class="card mb-3" id="like">
                 <div class="card-header">
-                    <a href="{% url 'profile' username=request.user %}">
+                    <a href="profile/{{item.user.username}}/">
                         <div class="row">
                             <div class="">
                                 <img src="{{item.profile.Profile_photo.url}}" alt="img" width="50px" height="50px"
-                                    style="border-radius: 50%; margin-left: 10px;">
+                                    style="border-radius: 50%; margin-left: 10px;" class="img-responsive">
                             </div>
                             <div class="col-md-2" style="margin-top: 10px;font-weight: bold;">
                                 <h4 class="card-title">{{item.user.username}}</h4>
@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <div class="row" id="like">
                         <div class="">
-                            <span class="likes">
+                            <span class="heart">
                                 <i class="fa fa-heart" aria-hidden="true" style="font-size:20px;"></i><span class="count"> 0</span>
                             </span>
                         </div>
@@ -33,6 +33,7 @@
                             <a href=""><i class="fa fa-comment" style="font-size:20px;"></i></a>
                         </div>
                     </div>
+                    <p><strong>{{item.user.username}}</strong> {{item.Image_caption}}</p>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
                         additional content. This content is a little bit longer.</p>
                     <p class="card-text" style="font-size:14px;"><small class="text-muted">Updated-{{item.pub_date|timesince}}</small></p>
