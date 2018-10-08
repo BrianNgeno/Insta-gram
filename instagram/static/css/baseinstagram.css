@@ -303,7 +303,7 @@ img {
 .loader {
 	width: 5rem;
 	height: 5rem;
-	border: 0.6rem solid #999;
+	border: 0.6rem solid #4d90fe;
 	border-bottom-color: transparent;
 	border-radius: 50%;
 	margin: 0 auto;
@@ -462,6 +462,7 @@ img {
 		}
 	}
 }
+
  h4{
     font-family: 'Cookie', cursive; 
  }
@@ -518,4 +519,10 @@ img {
       width: calc(100% - 4px);
     }
   }  */
-   
+   #modal{
+    background-color: rgba(0, 0, 0, 0.877)
+   }
+   .modal-content{
+    background-color: rgba(0, 0, 0, 0.877);
+    color:white;
+   }

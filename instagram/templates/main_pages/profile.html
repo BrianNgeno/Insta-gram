@@ -60,7 +60,7 @@
 
             <div class="profile-bio">
 
-                <p><span class="profile-real-name">{{user.username}}</span>{{user.profile.Bio}}</p>
+                <p><span class="profile-real-name">{{user.username}}</span>  <br> {{user.profile.Bio}}</p>
 
             </div>
 
@@ -108,7 +108,7 @@
 </main>
 
 <div class="modal" tabindex="-1" id="myModal{{user.id}}" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog" role="document" id="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h4>Share captured moments with Friends and Family all over.</h4>

@@ -36,7 +36,7 @@ class Image(models.Model):
     profile = models.ForeignKey(Profile, null = True)
     pub_date = models.DateTimeField(auto_now_add=True, null=True)
     comment = models.ForeignKey
-
+    user= models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
 
     def save_image(self):
         self.save()
@@ -60,6 +60,9 @@ class Image(models.Model):
     def get_profile_images(cls, profile):
         images = Image.objects.filter(profile__pk = profile)
         return images
+
+    
+
 class Comment(models.Model):
     name = models.CharField(max_length=30)
 
