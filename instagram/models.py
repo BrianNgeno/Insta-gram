@@ -3,34 +3,6 @@ from django.contrib.auth.models import User
 import datetime as dt
 
 
-# Create your models here.
-class Image(models.Model):
-    Image = models.ImageField(upload_to = 'images/')
-    Image_name = models.CharField(max_length =30)
-    Image_caption = models.TextField(max_length =40)
-    Likes = models.CharField(max_length =20,blank =True)
-    Profile = models.ForeignKey
-    pub_date = models.DateTimeField(auto_now_add=True, null=True)
-    comment = models.ForeignKey
-
-
-    def save_image(self):
-        self.save()
-    
-    @classmethod
-    def get_by_id(cls,id):
-        image= Image.objects.get(user = id)
-        return image
-
-    @classmethod
-    def get_images(cls, profile):
-        image = Image.objects.filter(profile__pk = profile)
-        return image
-    
-    @classmethod
-    def get_all_images(cls):
-        images = Image.objects.all()
-        return images
 
         
 class Profile(models.Model):
@@ -55,7 +27,39 @@ class Profile(models.Model):
     def search_user(cls, name):
         userprof = Profile.objects.filter(user__username__icontains = name)
         return userprof
+# Create your models here.
+class Image(models.Model):
+    Image = models.ImageField(upload_to = 'images/')
+    Image_name = models.CharField(max_length =30)
+    Image_caption = models.TextField(max_length =40)
+    Likes = models.CharField(max_length =20,blank =True)
+    profile = models.ForeignKey(Profile, null = True)
+    pub_date = models.DateTimeField(auto_now_add=True, null=True)
+    comment = models.ForeignKey
 
+
+    def save_image(self):
+        self.save()
+    
+    @classmethod
+    def get_by_id(cls,id):
+        image= Image.objects.get(user = id)
+        return image
+
+    @classmethod
+    def get_images(cls, profile):
+        image = Image.objects.filter(Profile__pk = profile)
+        return image
+    
+    @classmethod
+    def get_all_images(cls):
+        images = Image.objects.all()
+        return images
+
+    @classmethod
+    def get_profile_images(cls, profile):
+        images = Image.objects.filter(profile__pk = profile)
+        return images
 class Comment(models.Model):
     name = models.CharField(max_length=30)
 
@@ -70,3 +74,4 @@ class Comment(models.Model):
 
     def delete_comment(self):
         self.delete()
+

@@ -8,7 +8,7 @@
             {% for item in image %}
             <div class="card mb-3" id="like">
                 <div class="card-header">
-                    <a href="{% url 'profile' %}">
+                    <a href="{% url 'profile' username=request.user %}">
                         <div class="row">
                             <div class="">
                                 <img src="{{user.profile.Profile_photo.url}}" alt="img" width="50px" height="50px"
@@ -20,15 +20,17 @@
                         </div>
                     </a>
                 </div>
-                <img class="card-img-top img-responsive" src="{{item.Image.url}}" alt="Card image cap">
-                <div class="card-footer">
+                <img class="card-img-top img-responsive" src="{{item.Image.url}}" alt="Card image cap" />
+                <div class="card-body">
                     <div class="row" id="like">
                         <div class="">
-                            <a href=""><i class="far fa-heart" style="font-size:20px;" class="click" onclick="clicca()"></i></a>
+                            <span class="likes">
+                                <i class="fa fa-heart" aria-hidden="true" style="font-size:20px;"></i><span class="count"> 0</span>
+                            </span>
                         </div>
                         &nbsp; &nbsp;
-                        <div class="">
-                            <a href=""><i class="far fa-comment" style="font-size:20px;"></i></a>
+                        <div class="comnt">
+                            <a href=""><i class="fa fa-comment" style="font-size:20px;"></i></a>
                         </div>
                     </div>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
@@ -45,14 +47,39 @@
         </div>
     </div>
 </div>
-<!-- <script>
+<script>
 
-    punticlick = 0;
-    punti = document.getElementById("cliccare");
-    function clicca() {
-        punticlick++;
-        punti.value = punticlick;
-    }
+   // console.log('hello world');
 
-</script> -->
+//////////////////////////////// 
+// make heart red and         //
+// increase or decrease likes //
+////////////////////////////////
+
+// initiate a click event
+$('.fa-heart').click(function() {
+  // create variable to store parent of clicked heart icon
+  var parent = $(this).parent('.likes');
+  
+  // create variable to store span that is child of parent element
+  var countText = parent.find('span');
+  
+  // create variable to store integer version of text inside span
+  var count = parseInt(countText.text());
+  
+  // toggle red class on heart icon
+  $(this).toggleClass('red');
+  
+  // if icon has red class, add 1 to count total and display that on page
+  if( $(this).hasClass('red') ) {
+    count += 1;
+    countText.text(' ' + count);
+  // otherwise remove one from count total and display that info on page  
+  } else {
+    count -= 1;
+    countText.text(' ' + count);
+  }
+});
+
+</script>
 {% endblock %}

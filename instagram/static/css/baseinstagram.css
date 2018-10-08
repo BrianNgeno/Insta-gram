@@ -80,11 +80,18 @@
     margin-left: 100px;
 }
 #like{
-    margin-top:40px;
+    /* margin-top:20px; */
+    margin-left: 10px;
+
+}
+.comnt{
+    margin-top: 5px;
 }
 #like a{
-    color:black;
+    color:rgb(5, 5, 5);
     margin-left: 10px;
+    
+    
 }
 
 :root {
@@ -458,3 +465,57 @@ img {
  h4{
     font-family: 'Cookie', cursive; 
  }
+
+ /* .likes {
+    background-color: white;
+    display: block;
+    padding-top: 4px;
+    padding-left: 4px;
+    width: 214px;
+  }
+  
+  .liked {
+    background-color: pink;
+  }
+  
+  .red {
+    color: red;
+  }
+  
+  /* footer styles */
+  /* footer {
+    padding: 20px;
+    border-top: 1px solid lightgrey;
+  }
+  
+  @media screen and (max-width: 698px ) {
+    header, .profile, .gallery, footer {
+  /*    border: 1px solid magenta; */
+     /* width: calc(100% - 40px);
+    }
+    .image-container {
+      margin-right: 0px;
+      width: calc(50% - 12px);
+    }
+    .image-container:nth-child(2n+1) {
+      margin-right: 20px;
+    }
+    .likes {
+      width: calc(100% - 4px);
+    }
+  }
+  
+  @media screen and (min-width: 898px) {
+    header, .profile, .gallery, footer {
+      width: 70%;
+      padding-left: 15%;
+      padding-right: 15%;
+    }
+    .image-container {
+      width: calc(33.33% - 16px);
+    }
+    .likes {
+      width: calc(100% - 4px);
+    }
+  }  */
+   
