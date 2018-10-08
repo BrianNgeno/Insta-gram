@@ -14,7 +14,6 @@ def home_page(request):
 
 @login_required(login_url='/accounts/login/')
 def profile(request, username):
-    ima = Image.objects.all()
     uploadform= ImageForm
     profile = User.objects.get(username=username)
     # print(profile.id)
@@ -25,7 +24,7 @@ def profile(request, username):
     images = Image.get_profile_images(profile.id)
     title = f'@{profile.username} Instagram photos and videos'
 
-    return render(request, 'main_pages/profile.html', {'title':title, 'profile':profile, 'profile_details':profile_details, 'images':images,'uploadform':uploadform,'ima':ima})
+    return render(request, 'main_pages/profile.html', {'title':title, 'profile':profile, 'profile_details':profile_details, 'images':images,'uploadform':uploadform})
     '''
     editing user profile fillform & submission
     '''
