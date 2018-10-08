@@ -1,8 +1,8 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Image,Profile
-from .forms import ProfileForm, ImageForm
+from .forms import ProfileForm, ImageForm, CommentForm
 from django.contrib.auth.models import User
 
 
@@ -15,6 +15,7 @@ def home_page(request):
 @login_required(login_url='/accounts/login/')
 def profile(request, username):
     uploadform= ImageForm
+    image = Image.objects.all()
     profile = User.objects.get(username=username)
     # print(profile.id)
     try:
@@ -24,7 +25,7 @@ def profile(request, username):
     images = Image.get_profile_images(profile.id)
     title = f'@{profile.username} Instagram photos and videos'
 
-    return render(request, 'main_pages/profile.html', {'title':title, 'profile':profile, 'profile_details':profile_details, 'images':images,'uploadform':uploadform})
+    return render(request, 'main_pages/profile.html', {'title':title, 'profile':profile, 'profile_details':profile_details, 'images':images,'uploadform':uploadform,'image':image})
     '''
     editing user profile fillform & submission
     '''
@@ -81,20 +82,31 @@ def upload_image(request):
     
     return render(request, 'main_pages/profile.html', {'uploadform':uploadform})
 
+def one_image(request,image_id):
+    image = get_object_or_404(Image, pk=image_id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = request.user
+            comment.image = image
+            comment.save()
+    return redirect('home_page')
+
 # @login_required(login_url='/accounts/login')
-# def single_image(request, image_id):
-#     image = Image.get_image_id(image_id)
-#     comments = Comments.get_comments_by_images(image_id)
+# def one_image(request, image_id):
+#     image = Image.find_image_id(image_id)
+#     comments = Comments.get_commentsimages(image_id)
 
 #     if request.method == 'POST':
-#         form = CommentForm(request.POST)
-#         if form.is_valid():
-#             comment = form.save(commit=False)
+#         commentform = CommentForm(request.POST)
+#         if commentform.is_valid():
+#             comment = commentform.save(commit=False)
 #             comment.image = image
 #             comment.user = request.user
 #             comment.save()
-#             return redirect('single_image', image_id=image_id)
+#             return redirect('home_page', image_id=image_id)
 #     else:
-#         form = CommentForm()
+#         commentform = CommentForm()
         
-#     return render(request, 'image.html', {'image':image, 'form':form, 'comments':comments})
+#     return render(request, 'home.html', {'image':image, 'commentform':commentform, 'comments':comments})

@@ -25,7 +25,8 @@
                     <div class="row" id="like">
                         <div class="">
                             <span class="heart">
-                                <i class="fa fa-heart" aria-hidden="true" style="font-size:20px;"></i><span class="count"> 0</span>
+                                <i class="fa fa-heart" aria-hidden="true" style="font-size:20px;"></i><span class="count">
+                                    0</span>
                             </span>
                         </div>
                         &nbsp; &nbsp;
@@ -33,16 +34,46 @@
                             <a href=""><i class="fa fa-comment" style="font-size:20px;"></i></a>
                         </div>
                     </div>
+
                     <p><strong>{{item.user.username}}</strong> {{item.Image_caption}}</p>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
                         additional content. This content is a little bit longer.</p>
-                    <p class="card-text" style="font-size:14px;"><small class="text-muted">Updated-{{item.pub_date|timesince}}</small></p>
+                    <p class="card-text" style="font-size:14px;"><small class="text-muted">Uploaded
+                            {{item.pub_date|timesince}}</small></p>
+                    <h5><strong>Comments</strong></h5>
+                    <a class="view-more"></a>
+                    {% for comment in item.comment.all %}
+                    <li class="comment-list__comment" style="list-style: none;">
+                        <a href="{% url 'profile' }" class="user">
+                            <strong>{{ comment.user.username }}</strong>
+                        </a>
+                        <span class="comment">{{ comment.name }}</span>
+                    </li>
+                    {% endfor %}
+
+
+                    {% if request.user.is_authenticated %}
+                    <section class="input-row">
+                        <i class="fa # submit-like" aria-hidden="true"></i>
+                        <div class="comment-input-wrapper">
+                            <form action="{% url 'comment' image_id=item.id %}" method="post">
+                                {% csrf_token %}
+                                <input class="add-comment" name="name" id="comment{{item.id}}" type="text" placeholder="Add a comment...">
+
+                            </form>
+                        </div>
+                        <div class="hidden-data {{ item.pk }}" style="display: none;">
+                            <span class="post-pk">{{ item.pk }}</span>
+                        </div>
+                    </section>
+                    {% endif %}
                 </div>
             </div>
 
 
             {% endfor %}
         </div>
+
         <div class="col-md-4 scroll">
             <div class="card"></div>
         </div>
@@ -50,37 +81,37 @@
 </div>
 <script>
 
-   // console.log('hello world');
+    // console.log('hello world');
 
-//////////////////////////////// 
-// make heart red and         //
-// increase or decrease likes //
-////////////////////////////////
+    //////////////////////////////// 
+    // make heart red and         //
+    // increase or decrease likes //
+    ////////////////////////////////
 
-// initiate a click event
-$('.fa-heart').click(function() {
-  // create variable to store parent of clicked heart icon
-  var parent = $(this).parent('.likes');
-  
-  // create variable to store span that is child of parent element
-  var countText = parent.find('span');
-  
-  // create variable to store integer version of text inside span
-  var count = parseInt(countText.text());
-  
-  // toggle red class on heart icon
-  $(this).toggleClass('red');
-  
-  // if icon has red class, add 1 to count total and display that on page
-  if( $(this).hasClass('red') ) {
-    count += 1;
-    countText.text(' ' + count);
-  // otherwise remove one from count total and display that info on page  
-  } else {
-    count -= 1;
-    countText.text(' ' + count);
-  }
-});
+    // initiate a click event
+    $('.fa-heart').click(function () {
+        // create variable to store parent of clicked heart icon
+        var parent = $(this).parent('.likes');
+
+        // create variable to store span that is child of parent element
+        var countText = parent.find('span');
+
+        // create variable to store integer version of text inside span
+        var count = parseInt(countText.text());
+
+        // toggle red class on heart icon
+        $(this).toggleClass('red');
+
+        // if icon has red class, add 1 to count total and display that on page
+        if ($(this).hasClass('red')) {
+            count += 1;
+            countText.text(' ' + count);
+            // otherwise remove one from count total and display that info on page  
+        } else {
+            count -= 1;
+            countText.text(' ' + count);
+        }
+    });
 
 </script>
 {% endblock %}

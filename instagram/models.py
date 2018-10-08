@@ -61,7 +61,10 @@ class Image(models.Model):
         images = Image.objects.filter(profile__pk = profile)
         return images
 
-    
+    @classmethod
+    def find_image_id(cls, id):
+        identity = Image.objects.get(pk=id)
+        return identity
 
 class Comment(models.Model):
     name = models.CharField(max_length=30)
@@ -81,3 +84,7 @@ class Comment(models.Model):
     def delete_comment(self):
         self.delete()
 
+    @classmethod
+    def find_commentimage(cls,id):
+        comments = Comments.objects.filter(image__pk = id)
+        return comments

@@ -8,17 +8,17 @@
     <div class="container">
 
         <div class="profile">
-
+            
             <div class="profile-image">
 
-                <img src="{{user.profile.Profile_photo.url}}" width="120px" height="120px " alt="" class="img-responsive">
+                <img src="{{profile.profile.Profile_photo.url}}" width="120px" height="120px " alt="" class="img-responsive">
 
             </div>
 
             <div class="profile-user-settings">
 
                 <h1 class="profile-user-name">{{user.username}}</h1>
-
+                
                 <a href="{% url 'edit_profile' %}"><button class="btn profile-edit-btn">Edit Profile</button></a>
                 {% if user.is_authenticated %}
                 <ul>
