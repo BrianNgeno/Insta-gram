@@ -119,7 +119,7 @@
             <div class="modal-body">
                 <form action="{% url 'upload_image' %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {% bootstrap_form form %}
+                    {% bootstrap_form uploadform %}
                     <input type="submit" class="btn btn-success btn-lg" value="Upload Status">
                 </form>
             </div>

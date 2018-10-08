@@ -15,7 +15,7 @@ def home_page(request):
 @login_required(login_url='/accounts/login/')
 def profile(request, username):
     ima = Image.objects.all()
-    form= ProfileForm
+    uploadform= ImageForm
     profile = User.objects.get(username=username)
     # print(profile.id)
     try:
@@ -25,7 +25,7 @@ def profile(request, username):
     images = Image.get_profile_images(profile.id)
     title = f'@{profile.username} Instagram photos and videos'
 
-    return render(request, 'main_pages/profile.html', {'title':title, 'profile':profile, 'profile_details':profile_details, 'images':images,'form':form,'ima':ima})
+    return render(request, 'main_pages/profile.html', {'title':title, 'profile':profile, 'profile_details':profile_details, 'images':images,'uploadform':uploadform,'ima':ima})
     '''
     editing user profile fillform & submission
     '''
@@ -39,8 +39,8 @@ def edit(request):
             edit.save()
             return redirect('edit_profile')
     else:
-        fom = ProfileForm()
-    return render(request, 'main_pages/edit_profile.html', {'uploadform':fom})
+        form = ProfileForm()
+    return render(request, 'main_pages/edit_profile.html', {'form':form})
     '''
     logs out current user from account
     '''
@@ -71,16 +71,16 @@ def search(request):
 @login_required(login_url='/accounts/login')
 def upload_image(request):
     if request.method == 'POST':
-        form = ImageForm(request.POST, request.FILES)
-        if form.is_valid():
-            upload = form.save(commit=False)
+        uploadform = ImageForm(request.POST, request.FILES)
+        if uploadform.is_valid():
+            upload = uploadform.save(commit=False)
             upload.profile = request.user.profile
             upload.save()
             return redirect('profile', username=request.user)
     else:
-        form = ImageForm()
+        uploadform = ImageForm()
     
-    return render(request, 'main_pages/profile.html', {'form':form})
+    return render(request, 'main_pages/profile.html', {'uploadform':uploadform})
 
 # @login_required(login_url='/accounts/login')
 # def single_image(request, image_id):
