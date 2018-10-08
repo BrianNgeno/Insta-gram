@@ -39,7 +39,7 @@ I worked on this code on Linux OS. I used python as my primary language and djan
 If there are any issues on how the code runs, concerns, questions or ideas, kindly reach out to me on my email address; 
 bkn.ngeno@gmail.com.
 
-##  <a href="https://git.heroku.com/gram-likes.git">live link to site</a>
+##  <a href="https://gram-likes.herokuapp.com/">live link to site</a>
 ## Authors
 
 [Brian-Ng'eno](https://github.com/BrianNgeno/Insta-gram)
