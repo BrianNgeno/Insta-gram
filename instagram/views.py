@@ -82,6 +82,7 @@ def upload_image(request):
     
     return render(request, 'main_pages/profile.html', {'uploadform':uploadform})
 
+@login_required(login_url='/accounts/login')
 def one_image(request,image_id):
     image = get_object_or_404(Image, pk=image_id)
     if request.method == 'POST':
@@ -93,20 +94,3 @@ def one_image(request,image_id):
             comment.save()
     return redirect('home_page')
 
-# @login_required(login_url='/accounts/login')
-# def one_image(request, image_id):
-#     image = Image.find_image_id(image_id)
-#     comments = Comments.get_commentsimages(image_id)
-
-#     if request.method == 'POST':
-#         commentform = CommentForm(request.POST)
-#         if commentform.is_valid():
-#             comment = commentform.save(commit=False)
-#             comment.image = image
-#             comment.user = request.user
-#             comment.save()
-#             return redirect('home_page', image_id=image_id)
-#     else:
-#         commentform = CommentForm()
-        
-#     return render(request, 'home.html', {'image':image, 'commentform':commentform, 'comments':comments})
